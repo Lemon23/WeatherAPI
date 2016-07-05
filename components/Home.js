@@ -19,8 +19,7 @@ var styles = {
   },
   other: {
     color: '#fff',
-    fontSize: 13,
-    marginTop: '50%',
+    fontSize: 13
   }
 }
 

@@ -1,12 +1,16 @@
+var path = require('path');
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './main.js',
+  entry: path.resolve(__dirname, './main.js'),
   output: {
-    path: './',
-    filename: 'index.js'
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js'
   }, 
   devServer: {
-    inline: true, 
-    port: 3333
+    hot: true,
+    inline: true,
+    contentBase: path.resolve(__dirname, 'build')
   }, 
   module: {
     loaders: [
@@ -19,5 +23,8 @@ module.exports = {
       }
     }
     ]
-  }
-}
+  },
+   plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};
